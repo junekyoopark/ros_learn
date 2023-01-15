@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 #-*- coding:utf-8 -*-
+#https://velog.io/@717lumos/ROS-msg메시지-만들기
 import rospy
 from geometry_msgs.msg import Twist
 from turtlesim.msg import Pose
@@ -8,11 +9,12 @@ import math
 import time
 from std_srvs.srv import Empty
 
-def circle(radius, velocity, direction):
-    new_cmd = Num()
-    new_cmd.radius = radius
-    new_cmd.velocity = velocity
-    new_cmd.direction = direction
+# def circle(radius, velocity, direction):
+#     msg = Num()
+#     msg.radius = radius
+#     msg.velocity = velocity
+#     msg.direction = direction
+    
 
 def main():
     # 퍼블리시 노드 초기화
@@ -30,10 +32,9 @@ def main():
     # 중단되거나 사용자가 강제종료(ctrl+C) 전까지 계속 실행
     while not rospy.is_shutdown():
         # 메시지 내용 담기
-        
         msg.radius = 1
-        msg.velocity = 1
-        msg.direction = 1
+        msg.velocity = 0
+        msg.direction = 0
 
         # 터미널에 출력
         rospy.loginfo("you spin me right round baby right round")

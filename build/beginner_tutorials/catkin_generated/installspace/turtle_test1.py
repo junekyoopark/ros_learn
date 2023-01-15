@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #-*- coding:utf-8 -*-
-
+#https://velog.io/@717lumos/ROS-msg메시지-만들기
 import rospy
 from geometry_msgs.msg import Twist
 from turtlesim.msg import Pose
@@ -12,15 +12,15 @@ from std_srvs.srv import Empty
 
 class Calc:
     def __init__(self):
-        rospy.Subscriber("/new_command", Num, self.first_topic_callback)
+        rospy.Subscriber("/hello", Num, self.first_topic_callback)
         self.pub = rospy.Publisher("/turtle1/cmd_vel", Twist, queue_size=10)
         
-        self.linear.x = 0
-        self.linear.y = 0
-        self.linear.z = 0
-        self.angular.x = 0
-        self.angular.y = 0
-        self.angular.z = 0
+        self.x = 0
+        self.y = 0
+        self.z = 0
+        self.ax = 0
+        self.ay = 0
+        self.az = 0
 
         # self.radius = 0
         # self.velocity = 0
@@ -28,12 +28,14 @@ class Calc:
         
     # 퍼블리셔 노드로부터 토픽을 받아들이는 콜백 함수
     def first_topic_callback(self, data):
-        self.linear.x = data.velocity
-        self.linear.y = 0
-        self.linear.z = 0
-        self.angular.x = 0
-        self.angular.y = 0
-        self.angular.z = data.velocity / data.radius
+        print(data.velocity)
+        print(data.radius)
+        self.x = data.velocity
+        self.y = 0
+        self.z = 0
+        self.ax = 0
+        self.ay = 0
+        self.az = data.velocity / data.radius
 
         # 받은 내용(data)를 터미널에 출력
         rospy.loginfo("------")
@@ -47,12 +49,12 @@ class Calc:
         ## original_num: 계산의 대상이 될 수
         ## square_num: original_num의 제곱
         ## sqrt_num: original_num의 제곱근
-        msg.linear.x = self.linear.x
-        msg.linear.y = self.linear.y
-        msg.linear.z = self.linear.z
-        msg.angular.x = self.angular.x
-        msg.angular.y = self.angular.y
-        msg.angular.z = self.angular.z
+        msg.linear.x = self.x
+        msg.linear.y = self.y
+        msg.linear.z = self.z
+        msg.angular.x = self.ax
+        msg.angular.y = self.ay
+        msg.angular.z = self.az
 
         self.pub.publish(msg)
     

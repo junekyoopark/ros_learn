@@ -167,6 +167,7 @@ catkin_install_python(PROGRAMS
   scripts/turtle_advanced.py
   scripts/turtle_test.py
   scripts/turtle_test1.py
+  scripts/dwa_test.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

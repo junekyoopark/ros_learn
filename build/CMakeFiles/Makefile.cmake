@@ -22,6 +22,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/ubuntu/ros_workspace/src/CMakeLists.txt"
   "/home/ubuntu/ros_workspace/src/beginner_tutorials/CMakeLists.txt"
   "/home/ubuntu/ros_workspace/src/beginner_tutorials/package.xml"
+  "/home/ubuntu/ros_workspace/src/beginner_tutorials/scripts/dwa_test.py"
   "/home/ubuntu/ros_workspace/src/beginner_tutorials/scripts/turtle_advanced.py"
   "/home/ubuntu/ros_workspace/src/beginner_tutorials/scripts/turtle_test.py"
   "/home/ubuntu/ros_workspace/src/beginner_tutorials/scripts/turtle_test1.py"

@@ -12,7 +12,7 @@ from std_srvs.srv import Empty
 
 class Calc:
     def __init__(self):
-        rospy.Subscriber("/new_command", Num, self.first_topic_callback)
+        rospy.Subscriber("/hello", Num, self.first_topic_callback)
         self.pub = rospy.Publisher("/turtle1/cmd_vel", Twist, queue_size=10)
         
         self.x = 0
